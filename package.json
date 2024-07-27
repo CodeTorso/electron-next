@@ -2,16 +2,23 @@
   "name": "kartik-pages-typescript",
   "version": "0.1.0",
   "private": true,
+  "main": "electron/main.mjs",
+  "author": "Kartik + @codetorso",
+  "description": "Cool project",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron .\"",
+    "build": "next build && electron-builder",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3",
+    "electron-serve": "^2.0.0",
+    "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "typescript": "^5",
